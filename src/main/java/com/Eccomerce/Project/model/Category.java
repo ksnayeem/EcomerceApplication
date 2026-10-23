@@ -1,16 +1,18 @@
 package com.Eccomerce.Project.model;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.*;
+import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity(name = "categories")
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -22,34 +24,10 @@ public class Category {
     @Size(min =  5, message = "Minimum size of a message is 5")
     private String name;
 
-    public Category() {
-    }
 
-    public Category(Long categoryId, String name) {
-        this.categoryId = categoryId;
-        this.name = name;
-    }
-    public Long getCategoryId() {
+    @OneToMany(mappedBy = "category")
 
-        return categoryId;
-    }
-
-    public void setCategoryId(Long Id) {
-
-        this.categoryId = Id;
-    }
-
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
+    private List<Product> product;
 
 
 }

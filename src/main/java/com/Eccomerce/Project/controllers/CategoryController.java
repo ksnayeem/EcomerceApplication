@@ -1,22 +1,17 @@
 
 
-package com.Eccomerce.Project.category;
-import java.util.*;
+package com.Eccomerce.Project.controllers;
 
 import com.Eccomerce.Project.config.AppConstant;
-import com.Eccomerce.Project.model.Category;
 import com.Eccomerce.Project.payloads.CategoryDTO;
 import com.Eccomerce.Project.payloads.CategoryResponse;
 import com.Eccomerce.Project.service.CategoryService;
-import com.Eccomerce.Project.service.CategoryServiceImplementation;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
